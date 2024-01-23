@@ -1,34 +1,43 @@
 # Publications
 
-* The following notations only apply to September 2021 and after.
 
-`#`: derived from the candidate’s thesis.
+**`#`**: Author of Correspondence.
 
-`*`: publication that has undergone stringent editorial review by peers.
+**`*`**: Joint First authors.
 
-`+`: publication that was invited and carries special prestige and recognition.
+**`-`**: Not Peer Reviewed.
 
 <!-- # Selected Publications -->
 <!--  -->
 <!-- ::: {#refs_selected} -->
 <!-- ::: -->
 
+
+```{r}
+library(dplyr)
+knitr::write_bib(c("vitae", "tibble"), "packages.bib")
+
+bibliography_entries("data/pubs.bib") %>%
+    arrange(desc(issued))
+```
+
+<!-- 
 ## Refereed Journal Papers
 
-```{r}
-vitae::bibliography_entries("bib/journal.bib")
-# arrange(desc(row_number())) %>%
-# relocate(annote)
-```
+# ```{r}
+# vitae::bibliography_entries("bib/journal.bib")
+# # arrange(desc(row_number())) %>%
+# # relocate(annote)
+# ```
 
 ## Papers in Refereed Conference Proceedings
-
-```{r}
-bibliography_entries("bib/proceedings.bib")
-```
-
+<!-- 
+# ```{r}
+# bibliography_entries("bib/proceedings.bib")
+``` -->
+<!--
 ## Book Chapters
 
-```{r}
-bibliography_entries("bib/book.bib")
-```
+# ```{r}
+# bibliography_entries("bib/book.bib")
+``` -->

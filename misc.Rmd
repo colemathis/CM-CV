@@ -1,0 +1,28 @@
+# Summer & Winter Schools
+```{r}
+library(tibble)
+library(vitae)
+tribble(
+    ~School, ~Year, ~Institution, ~Where,
+    "Complex Systems Science Summer School", "2014", "Santa Fe Institute", "Santa Fe, New Mexico",
+    "Josep Comas i Sola International Summer School in Astrobiology", "2015", "Universidad Internacional Menéndez Pelayo", "Santander, Spain"
+) %>%
+    detailed_entries(what = School, Year, Institution, Where)
+```
+
+
+# Field Experience
+
+```{r}
+tribble(
+    ~Place, ~Year, ~Institution, ~Where, ~Why,
+    "Yellowstone National Park", "2016", "GEOPIG, Arizona State University", "Montana, USA", "I worked closely with geologists, chemists, and microbiologists to collect samples and measurements from several hot spring environments in Yellowstone National park. I worked under the supervision of Prof Everett Shock"
+) %>%
+    detailed_entries( # Fucked up entries here again
+        Institution,
+        Year,
+        Place,
+        where = Where,
+        why = Why
+    )
+```

@@ -1,0 +1,19 @@
+
+# Experience
+
+```{r}
+library(vitae)
+library(lubridate)
+vroom::vroom("data/experience.csv") %>%
+    # select(-description) %>%
+    # tidyr::fill(-description) %>%
+    mutate(date = as.Date(start, "%m/%d/%Y")) %>%
+    arrange(desc(date)) %>%
+    detailed_entries( # Order of entries is a little weird here, but it looks good
+        where = detail,
+        when = glue::glue("{start} - {end}"),
+        what = institution,
+        with = position,
+        why = description,
+    )
+```

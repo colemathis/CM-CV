@@ -1,21 +1,19 @@
 ---
-title: JooYoung Seo's Curriculum Vitae
+title: Cole (Nicholas) Mathis's Curriculum Vitae
 graphics: yes
-name: JooYoung
-surname: Seo
+name: Cole
+surname: Mathis
 headcolor: 414141
 #qualifications: 
-position: "Ph.D."
-pronouns: he/him/his
-address: "614 E. Daniel St. | Room 5158, Champaign, IL 61820"
-phone: "+1 217-333-2671"
-www: jooyoungseo.github.io
-email: "jseo1005@illinois.edu"
-twitter: seo_jooyoung
-github: jooyoungseo
-linkedin: jooyoungseo
+position: "Assistant Professor"
+address: "727 E Tyler St | Room 130C, Tempe, AZ 85281"
+phone: "+1 480-459-8276"
+www: colemathis.github.io
+email: "cole.mathis@asu.edu"
+twitter: colemathis__
+github: colemathis
 aboutme: |
-  I am a learning scientist, data-science/software developer, and internationally certified accessibility professional.
+  Cole is a.....
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 csl: "csl/apa7-cv-jy-edition.csl"
 header-includes:
@@ -25,7 +23,7 @@ header-includes:
   # - \pagestyle{fancy}
   # - \fancyhf{}
   # - \fancyhead[R]{\thepage}
-knit: (function(input, ...) {lapply(bookdown::render_book(input, output_file = "docs/JooYoung_Seo_CV", output_format = "all", envir = globalenv(), ...), browseURL)})
+knit: (function(input, ...) {lapply(bookdown::render_book(input, output_file = "docs/Cole_Mathis_CV", output_format = "all", envir = globalenv(), ...), browseURL)})
 ---
 
 ```{r setup, include=FALSE, cache = FALSE}
