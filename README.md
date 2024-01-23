@@ -1,5 +1,28 @@
+# TODO:
 
-# JooYoung Seo's Academic CV
+- Format Current Position
+- Grants/Awards
+- Conferences/Workshops
+- Invited Presentations
+- Teaching
+
+
+# How to update:
+
+1) Update Publications in `data/pubs.bib`.
+    - Grab new publications - do not overwrite old ones.
+    - Add annotations where needed, update old annotations (preprints now in print etc)
+2) Update Awards/Honors
+
+3) Update Grants
+
+4) Update Teaching Experience.
+
+5) Check Current position
+
+
+----------------------------------------------------
+# Original Author README: JooYoung Seo's Academic CV
 
 ## Enhancements Compared to the default `vitae` package:
 
