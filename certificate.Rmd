@@ -1,8 +1,0 @@
-
-# Certificates
-
-```{r certificate}
-vroom::vroom("data/certificate.csv") %>%
-  filter(with != "IBM") %>%
-  vitae::detailed_entries(what, when, with, .protect = FALSE)
-```

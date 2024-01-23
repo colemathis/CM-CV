@@ -1400,7 +1400,7 @@
         <if variable="annote">
           <!-- If annote exists, display citation number followed by annote -->
           <text variable="citation-number" prefix="" suffix="." />
-          <text variable="annote" vertical-align="sup" font-style="italic" font-weight="bold"
+          <text variable="annote" font-weight="bold"
             prefix="" suffix=" " />
         </if>
         <else>
