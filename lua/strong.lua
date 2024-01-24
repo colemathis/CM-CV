@@ -2,13 +2,13 @@ function Block(el)
     if el.t == "Para" or el.t == "Plain" then
         for k, _ in ipairs(el.content) do
 
-            if el.content[k].t == "Str" and el.content[k].text == "Seo," and
+            if el.content[k].t == "Str" and el.content[k].text == "Mathis," and
                 el.content[k + 1].t == "Space" and el.content[k + 2].t == "Str" and
-                el.content[k + 2].text:find("^J.") then
+                el.content[k + 2].text:find("^C.") then
 
-                local _, e = el.content[k + 2].text:find("^J.")
+                local _, e = el.content[k + 2].text:find("^C.")
                 local rest = el.content[k + 2].text:sub(e + 1) -- empty if e+1>length
-                el.content[k] = pandoc.Strong {pandoc.Str("Seo, J.")}
+                el.content[k] = pandoc.Strong {pandoc.Str("Mathis, C.")}
                 el.content[k + 1] = pandoc.Str(rest)
                 table.remove(el.content, k + 2) -- safe? another way would be to set element k+2 to Str("")
                 -- no real need to skip ipairs items here

@@ -13,7 +13,7 @@ email: "cole.mathis@asu.edu"
 twitter: colemathis__
 github: colemathis
 aboutme: |
-  Cole is a.....
+  Computational \& Statistical Physicist. Origins of Life, Complex Systems, Life Detection, Molecular Assembly.
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 csl: "csl/apa7-cv-jy-edition.csl"
 header-includes:

@@ -1,10 +1,26 @@
-# Conference Presentations and Invited Talks
+\pagebreak
+# Invited Talks
 
-`r knitr::knit_child("data/poster_short.txt")`
 
-<!-- ## Invited Guest Lectures -->
-<!-- ```{r talk}
+```{r invited_talk}
 vroom::vroom("data/talk.csv") %>%
-  tidyr::fill(-why) %>%
-  vitae::detailed_entries(what, when, with, where, why, .protect = TRUE)
-``` -->
+    filter(invited == "Y") %>%
+    dplyr::mutate(with = replace_na(with, " ")) %>%
+    dplyr::mutate(when = lubridate::ym(when)) %>%
+    dplyr::arrange(desc(when)) %>%
+    dplyr::mutate(with = paste(with, " - ", why)) %>%
+    vitae::detailed_entries(with, when, what, where, .protect = TRUE)
+```
+ 
+# Conferences, Workshops, and Seminars
+```{r other_talk}
+vroom::vroom("data/talk.csv") %>%
+    dplyr::mutate(invited = replace_na(invited, " ")) %>%
+    dplyr::mutate(why = replace_na(why, " ")) %>%
+    filter(invited != "Y") %>%
+    dplyr::mutate(with = replace_na(with, " ")) %>%
+    dplyr::mutate(when = lubridate::ym(when)) %>%
+    dplyr::arrange(desc(when)) %>%
+    dplyr::mutate(with = if_else(why != " ", paste(with, " - ", why), with)) %>%
+    vitae::detailed_entries(what, when, with, where, .protect = TRUE)
+```

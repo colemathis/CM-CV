@@ -1,9 +1,5 @@
 # TODO:
 
-- Format Current Position
-- Grants/Awards
-- Conferences/Workshops
-- Invited Presentations
 - Teaching
 
 

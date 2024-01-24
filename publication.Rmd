@@ -1,11 +1,7 @@
 # Publications
 
 
-**`#`**: Author of Correspondence.
-
-**`*`**: Joint First authors.
-
-**`-`**: Not Peer Reviewed.
+**`#`**: Author of Correspondence.         **`*`**: Joint First authors.          **`-`**: Not Peer Reviewed.
 
 <!-- # Selected Publications -->
 <!--  -->
