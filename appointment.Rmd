@@ -1,13 +1,13 @@
 # Current Position
 
-```{r}
+```{r Position}
 library(tibble)
 tribble(
     ~Position, ~Institution, ~Center, ~Title,
     "Assistant Professor", "Arizona State University", "Biodesign Institute", "Center for Biocomputation, Security, and Society",
     "Assistant Professor", "Arizona State University", "College of Global Futures", "School of Complex Adaptive Systems",
     "Founder & Treasurer", "Team 0", "", "39 Alpha Research",
-    "Visiting Assistant Professor", "Tokyo Tech", "World Research Hub", "Earth-Life Science Institute",
+    # "Visiting Assistant Professor", "Tokyo Tech", "World Research Hub", "Earth-Life Science Institute",
 ) %>%
     detailed_entries(Position, Institution, Title, Center)
 ```

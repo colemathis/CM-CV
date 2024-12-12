@@ -8,7 +8,7 @@ rmd_files:
 #  - "award.Rmd"
   - "grant.Rmd"
   - "presentation.Rmd"
-#  - "media_coverage.Rmd"
+  - "media_coverage.Rmd"
 #  - "teaching_exp.Rmd"
   - "service.Rmd"
   - "misc.Rmd"

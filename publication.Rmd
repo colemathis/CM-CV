@@ -9,13 +9,15 @@
 <!-- ::: -->
 
 
-```{r}
+```{r Publications}
 library(dplyr)
-knitr::write_bib(c("vitae", "tibble"), "packages.bib")
-
+library(vitae)
+library(tidyverse)
+library(vroom)
 bibliography_entries("data/pubs.bib") %>%
     arrange(desc(issued))
 ```
+
 
 <!-- 
 ## Refereed Journal Papers

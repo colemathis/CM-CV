@@ -1,5 +1,6 @@
-# Media Coverage
+# Press and Media
 
-```{r}
-bibliography_entries("bib/media_coverage.bib")
+```{r Press}
+bibliography_entries("bib/media_coverage.bib") %>%
+    arrange(desc(issued))
 ```

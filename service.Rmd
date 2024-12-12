@@ -1,5 +1,16 @@
 # Service & Outreach
 
+## University Service
+
+```{r service}
+library(vitae)
+vroom::vroom("data/committees-service.csv") %>%
+  vitae::brief_entries(what, when, with, where)
+```
+
+## Mentorship
+Test
+
 ## Founding Member, OoLEN (Origins of Life Early Career Network)
 
 The Origin of Life Early career Network (OoLEN) supports and accelerates research on the Origin of Life by bringing together early-career scientists from very different disciplines and backgrounds. I founded this network together with Dr Joana Xavier, Dr Martina Preiner and Silke Asche. More information can be found at [oolen.org](https://oolen.org/).

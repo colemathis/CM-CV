@@ -1,7 +1,7 @@
 
 # Experience
 
-```{r}
+```{r Experience}
 library(vitae)
 library(lubridate)
 vroom::vroom("data/experience.csv") %>%
