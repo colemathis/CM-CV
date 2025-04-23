@@ -5,7 +5,7 @@
 ```{r service}
 library(vitae)
 vroom::vroom("data/committees-service.csv") %>%
-  vitae::brief_entries(what, when, with, where)
+  vitae::brief_entries(what, when, with)#, where)
 ```
 
 ## Mentorship
