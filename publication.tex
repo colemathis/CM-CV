@@ -1,0 +1,421 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt,a4paper,]{awesome-cv}
+
+% Configure page margins with geometry
+\usepackage{geometry}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\colorlet{awesome}{awesome-red}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\name{}{}
+
+
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+\usepackage{booktabs}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+
+% Pandoc CSL macros
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+\makecvfooter
+  {}
+    {~~~·~~~Curriculum Vitae}
+  {\thepage~ of \pageref{LastPage}~}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
+
+
+
+\section{Publications}\label{publications}
+
+\textbf{\texttt{\#}}: Author of Correspondence.      
+\textbf{\texttt{*}}: Joint First authors.       \textbf{\texttt{-}}: Not
+Peer Reviewed.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vitae)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'vitae'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:stats':
+## 
+##     filter
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v forcats   1.0.0     v readr     2.1.5
+## v ggplot2   3.5.1     v stringr   1.5.1
+## v lubridate 1.9.3     v tibble    3.2.1
+## v purrr     1.0.2     v tidyr     1.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x vitae::filter() masks dplyr::filter(), stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vroom)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'vroom'
+## 
+## The following objects are masked from 'package:readr':
+## 
+##     as.col_spec, col_character, col_date, col_datetime, col_double,
+##     col_factor, col_guess, col_integer, col_logical, col_number,
+##     col_skip, col_time, cols, cols_condense, cols_only, date_names,
+##     date_names_lang, date_names_langs, default_locale, fwf_cols,
+##     fwf_empty, fwf_positions, fwf_widths, locale, output_column,
+##     problems, spec
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{bibliography\_entries}\NormalTok{(}\StringTok{"data/pubs.bib"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(issued))}
+\end{Highlighting}
+\end{Shaded}
+
+\phantomsection\label{refs-1797e7d470caf82193c45094f2f30c28}
+\begin{CSLReferences}{0}{0}
+\bibitem[\citeproctext]{ref-mathis2024self}
+\CSLLeftMargin{1. }%
+\CSLRightInline{Mathis, C., Patel, D., Weimer, W., \& Forrest, S.
+(2024). SELF ORGANIZATION IN COMPUTATION \& CHEMISTRY: RETURN TO
+ALCHEMY. \emph{Under Review}.
+\CSLBlock{-}}
+
+\bibitem[\citeproctext]{ref-foote2023false}
+\CSLLeftMargin{2. }%
+\CSLRightInline{Foote, S., Sinhadc, P., Mathis, C., \& Walker, S. I.
+(2023). False positives and the challenge of testing the alien
+hypothesis. \emph{Astrobiology}, \emph{23}(11), 1189--1201.
+\CSLBlock{\#}}
+
+\bibitem[\citeproctext]{ref-jirasek2023multimodal}
+\CSLLeftMargin{3. }%
+\CSLRightInline{Jirasek, M., Sharma, A., Bame, J. R., Bell, N.,
+Marshall, S. M., Mathis, C., Macleod, A., Cooper, G. J., Swart, M.,
+Mollfulleda, R., et al. (2023). Multimodal techniques for detecting
+alien life using assembly theory and spectroscopy. \emph{arXiv Preprint
+arXiv:2302.13753}.
+\CSLBlock{-}}
+
+\bibitem[\citeproctext]{ref-oolen2023takes}
+\CSLLeftMargin{4. }%
+\CSLRightInline{OoLEN, Asche, S., Bautista, C., Boulesteix, D.,
+Champagne-Ruel, A., Mathis, C., Markovitch, O., Peng, Z., Adams, A.,
+Dass, A. V., et al. (2023). What it takes to solve the origin (s) of
+life: An integrated review of techniques. \emph{arXiv Preprint
+arXiv:2308.11665}.
+\CSLBlock{-}}
+
+\bibitem[\citeproctext]{ref-smith2023life}
+\CSLLeftMargin{5. }%
+\CSLRightInline{Smith, H. B., \& Mathis, C. (2023). Life detection in a
+universe of false positives: Can the fatal flaws of exoplanet
+biosignatures be overcome absent a theory of life? \emph{BioEssays},
+\emph{45}(12), 2300050.
+\CSLBlock{*}}
+
+\bibitem[\citeproctext]{ref-lockey2022investigating}
+\CSLLeftMargin{6. }%
+\CSLRightInline{Lockey, D., Mathis, C., Miras, H. N., \& Cronin, L.
+(2022). Investigating the autocatalytically driven formation of
+keggin-based polyoxometalate clusters. \emph{Matter}, \emph{5}(1),
+302--313.}
+
+\bibitem[\citeproctext]{ref-meadows2022community}
+\CSLLeftMargin{7. }%
+\CSLRightInline{Meadows, V., Graham, H., Abrahamsson, V., Adam, Z.,
+Amador-French, E., Arney, G., Barge, L., Barlow, E., Berea, A., Bose,
+M., et al. (2022). Community report from the biosignatures standards of
+evidence workshop. \emph{arXiv Preprint arXiv:2210.14293}.
+\CSLBlock{-}}
+
+\bibitem[\citeproctext]{ref-mathis2020identifying}
+\CSLLeftMargin{8. }%
+\CSLRightInline{Mathis, C., Marshall, S., Carrick, E., Keenan, G.,
+Cooper, G., Graham, H., Bame, J., Craven, M., Bell, N., Gromski, P. S.,
+et al. (2021). Identifying molecules as biosignatures with assembly
+theory and mass spectrometry. \emph{Nature Communications},
+\emph{12}(1), 3033.
+\CSLBlock{*}}
+
+\bibitem[\citeproctext]{ref-liu2021exploring}
+\CSLLeftMargin{9. }%
+\CSLRightInline{Liu, Y., Mathis, C., Bajczyk, M. D., Marshall, S. M.,
+Wilbraham, L., \& Cronin, L. (2021). Exploring and mapping chemical
+space with molecular assembly trees. \emph{Science Advances},
+\emph{7}(39), eabj2465.}
+
+\bibitem[\citeproctext]{ref-asche2021robotic}
+\CSLLeftMargin{10. }%
+\CSLRightInline{Asche, S., Cooper, G. J., Keenan, G., Mathis, C., \&
+Cronin, L. (2021). A robotic prebiotic chemist probes long term
+reactions of complexifying mixtures. \emph{Nature Communications},
+\emph{12}(1), 3547.}
+
+\bibitem[\citeproctext]{ref-doran2021exploring}
+\CSLLeftMargin{11. }%
+\CSLRightInline{Doran, D., Clarke, E., Keenan, G., Carrick, E., Mathis,
+C., \& Cronin, L. (2021). Exploring the sequence space of unknown
+oligomers and polymers. \emph{Cell Reports Physical Science},
+\emph{2}(12).}
+
+\bibitem[\citeproctext]{ref-miras2020spontaneous}
+\CSLLeftMargin{12. }%
+\CSLRightInline{Miras, H. N., Mathis, C., Xuan, W., Long, D.-L., Pow,
+R., \& Cronin, L. (2020). Spontaneous formation of autocatalytic sets
+with self-replicating inorganic metal oxide clusters. \emph{Proceedings
+of the National Academy of Sciences}, \emph{117}(20), 10699--10705.}
+
+\bibitem[\citeproctext]{ref-mathis2020meaning}
+\CSLLeftMargin{13. }%
+\CSLRightInline{Mathis, C. (2020). Meaning of the living state.
+\emph{Social and Conceptual Issues in Astrobiology}, 91.}
+
+\bibitem[\citeproctext]{ref-antonioni2019individual}
+\CSLLeftMargin{14. }%
+\CSLRightInline{Antonioni, A., Martinez-Vaquero, L. A., Mathis, C.,
+Peel, L., \& Stella, M. (2019). Individual perception dynamics in drunk
+games. \emph{Physical Review E}, \emph{99}(5), 052311.}
+
+\bibitem[\citeproctext]{ref-kim2019universal}
+\CSLLeftMargin{15. }%
+\CSLRightInline{Kim, H., Smith, H. B., Mathis, C., Raymond, J., \&
+Walker, S. I. (2019). Universal scaling across biochemical networks on
+earth. \emph{Science Advances}, \emph{5}(1), eaau0149.}
+
+\bibitem[\citeproctext]{ref-surman2019environmental}
+\CSLLeftMargin{16. }%
+\CSLRightInline{Surman, A. J., Rodriguez-Garcia, M., Abul-Haija, Y. M.,
+Cooper, G. J., Gromski, P. S., Turk-MacLeod, R., Mullin, M., Mathis, C.,
+Walker, S. I., \& Cronin, L. (2019). Environmental control programs the
+emergence of distinct functional ensembles from unconstrained chemical
+reactions. \emph{Proceedings of the National Academy of Sciences},
+\emph{116}(12), 5387--5392.}
+
+\bibitem[\citeproctext]{ref-mathis2019autocatalysis}
+\CSLLeftMargin{17. }%
+\CSLRightInline{Mathis, C., Miras, H., \& Cronin, L. (2019).
+Autocatalysis in a hierarchically organized inorganic chemical network.
+\emph{Artificial Life Conference Proceedings}, 652--653.
+\CSLBlock{-}}
+
+\bibitem[\citeproctext]{ref-walker2018network}
+\CSLLeftMargin{18. }%
+\CSLRightInline{Walker, S. I., \& Mathis, C. (2018). Network theory in
+prebiotic evolution. \emph{Prebiotic Chemistry and Chemical Evolution of
+Nucleic Acids}, 263--291.
+\CSLBlock{-}}
+
+\bibitem[\citeproctext]{ref-mathis2017emergence}
+\CSLLeftMargin{19. }%
+\CSLRightInline{Mathis, C., Bhattacharya, T., \& Walker, S. I. (2017).
+The emergence of life as a first-order phase transition.
+\emph{Astrobiology}, \emph{17}(3), 266--276.}
+
+\bibitem[\citeproctext]{ref-mathis2017prebiotic}
+\CSLLeftMargin{20. }%
+\CSLRightInline{Mathis, C., Ramprasad, S. N., Walker, S. I., \& Lehman,
+N. (2017). Prebiotic RNA network formation: A taxonomy of molecular
+cooperation. \emph{Life}, \emph{7}(4), 38.}
+
+\end{CSLReferences}
+
+
+\label{LastPage}~
+\end{document}
