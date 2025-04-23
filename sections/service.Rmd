@@ -4,12 +4,20 @@
 
 ```{r service}
 library(vitae)
+
+library(lubridate)
 vroom::vroom("data/committees-service.csv") %>%
-  vitae::brief_entries(what, when, with)#, where)
+
+    mutate(date = as.Date(start, "%m/%Y")) %>%
+    arrange(desc(date)) %>%
+    vitae::detailed_entries( # Order of entries is a little weird here, but it looks good
+        where = where,
+        when = glue::glue("{start} - {stop}"),
+        with = with,
+    )
+  # vitae::brief_entries(with, when, what)#, where)
 ```
 
-## Mentorship
-Test
 
 ## Founding Member, OoLEN (Origins of Life Early Career Network)
 
