@@ -9,7 +9,7 @@ rmd_files:
   - "sections/presentation.Rmd"
   - "sections/grant.Rmd"
   - "sections/media_coverage.Rmd"
-#  - "teaching_exp.Rmd"
+  - "sections/teaching_exp.Rmd"
   - "sections/service.Rmd"
   - "sections/misc.Rmd"
 #  - "membership.Rmd"

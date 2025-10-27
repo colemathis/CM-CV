@@ -7,15 +7,14 @@ library(vitae)
 
 library(lubridate)
 vroom::vroom("data/committees-service.csv") %>%
-
-    mutate(date = as.Date(start, "%m/%Y")) %>%
-    arrange(desc(date)) %>%
-    vitae::detailed_entries( # Order of entries is a little weird here, but it looks good
-        where = where,
-        when = glue::glue("{start} - {stop}"),
-        with = with,
-    )
-  # vitae::brief_entries(with, when, what)#, where)
+  mutate(date = as.Date(start, "%m/%Y")) %>%
+  arrange(desc(date)) %>%
+  vitae::detailed_entries( # Order of entries is a little weird here, but it looks good
+    where = where,
+    when = glue::glue("{start} - {stop}"),
+    with = with,
+  )
+# vitae::brief_entries(with, when, what)#, where)
 ```
 
 
@@ -30,10 +29,10 @@ The Origin of Life Early career Network (OoLEN) supports and accelerates researc
 
 ## Refereeing
 - Astrobiology
-- Life (MDPI)
+- Physical Review E
 - Nature Astronomy
 - Scientific Reports
 - Journal of the Royal Society: Interface Focus
 - PloS Computational Biology,
 - Journal of Molecular Evolution,
-- Journal of the Royal Society: Phil Trans A 
+- Journal of the Royal Society: Phil Trans A

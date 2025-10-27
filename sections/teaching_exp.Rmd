@@ -1,6 +1,6 @@
 # Teaching Experience
-<!-- ```{r teaching-experience}
+```{r teaching-experience}
 vroom::vroom("data/teaching-experience.csv") %>%
   tidyr::fill(-why) %>%
   vitae::detailed_entries(what, when, with, where, why)
-``` -->
+```
