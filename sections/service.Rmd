@@ -23,6 +23,8 @@ vroom::vroom("data/committees-service.csv") %>%
 The Origin of Life Early career Network (OoLEN) supports and accelerates research on the Origin of Life by bringing together early-career scientists from very different disciplines and backgrounds. I founded this network together with Dr Joana Xavier, Dr Martina Preiner and Silke Asche. More information can be found at [oolen.org](https://oolen.org/).
 
 ## Conference Organizer
+- AbSciCon 2026 (Scientific Organizing Committee), University of Wisconsin Madison, June 2026.
+- Assembly Theory for Folded Matter, Santa Fe Institute, August 2025.
 - Interdisciplinary Origin of Life Meeting for Early Career Researchers, University of Montreal, August 2022.
 - New Frontiers in the Origins of Life, Santa Fe Institute, March 2022.
 - Satellite Session, Conference on Complex Systems, Arizona State University, October 2015.
@@ -36,3 +38,4 @@ The Origin of Life Early career Network (OoLEN) supports and accelerates researc
 - PloS Computational Biology,
 - Journal of Molecular Evolution,
 - Journal of the Royal Society: Phil Trans A
+- Discovery Life (Nature Springer)
