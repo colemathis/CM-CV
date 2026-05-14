@@ -1,5 +1,8 @@
 # Press and Media
 
+\renewcommand{\CSLLeftMargin}[1]{}
+\renewcommand{\CSLRightInline}[1]{#1}
+
 ```{r Press}
 bibliography_entries("bib/media_coverage.bib") %>%
     arrange(desc(issued))

@@ -1,6 +1,19 @@
 # Teaching Experience
+
+School of Complex Adaptive Systems, Arizona State University
+
 ```{r teaching-experience}
 vroom::vroom("data/teaching-experience.csv") %>%
-  tidyr::fill(-why) %>%
-  vitae::detailed_entries(what, when, with, where, why)
+  mutate(across(where(is.character), trimws)) %>%
+  group_by(code, title, designed) %>%
+  summarize(semesters = paste(semester, collapse = ", "), .groups = "drop") %>%
+  mutate(
+    course    = glue::glue("{code}: {title}"),
+    role      = if_else(designed == "Y", "Course Designer & Instructor", "Instructor")
+  ) %>%
+  vitae::detailed_entries(
+    what = course,
+    with = role,
+    when = semesters
+  )
 ```

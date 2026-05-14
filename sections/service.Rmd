@@ -1,26 +1,20 @@
 # Service & Outreach
 
-## University Service
+## Committees and Organizations
 
-```{r service}
-library(vitae)
-
+```{r service, results='asis'}
 library(lubridate)
 vroom::vroom("data/committees-service.csv") %>%
-  mutate(date = as.Date(start, "%m/%Y")) %>%
-  arrange(desc(date)) %>%
-  vitae::detailed_entries( # Order of entries is a little weird here, but it looks good
-    where = where,
-    when = glue::glue("{start} - {stop}"),
-    with = with,
-  )
-# vitae::brief_entries(with, when, what)#, where)
+  mutate(
+    date_parsed = lubridate::my(start),
+    start_fmt   = format(date_parsed, "%b. %Y")
+  ) %>%
+  arrange(desc(date_parsed)) %>%
+  mutate(line = glue::glue("- {with}, {where} ({start_fmt} - {stop})")) %>%
+  pull(line) %>%
+  paste(collapse = "\n") %>%
+  cat()
 ```
-
-
-## Founding Member, OoLEN (Origins of Life Early Career Network)
-
-The Origin of Life Early career Network (OoLEN) supports and accelerates research on the Origin of Life by bringing together early-career scientists from very different disciplines and backgrounds. I founded this network together with Dr Joana Xavier, Dr Martina Preiner and Silke Asche. More information can be found at [oolen.org](https://oolen.org/).
 
 ## Conference Organizer
 - AbSciCon 2026 (Scientific Organizing Committee), University of Wisconsin Madison, June 2026.
@@ -30,12 +24,5 @@ The Origin of Life Early career Network (OoLEN) supports and accelerates researc
 - Satellite Session, Conference on Complex Systems, Arizona State University, October 2015.
 
 ## Refereeing
-- Astrobiology
-- Physical Review E
-- Nature Astronomy
-- Scientific Reports
-- Journal of the Royal Society: Interface Focus
-- PloS Computational Biology,
-- Journal of Molecular Evolution,
-- Journal of the Royal Society: Phil Trans A
-- Discovery Life (Nature Springer)
+
+Astrobiology; Physical Review E; Nature Astronomy; Scientific Reports; Journal of the Royal Society: Interface Focus; PloS Computational Biology; Journal of Molecular Evolution; Journal of the Royal Society: Phil Trans A; Discovery Life (Nature Springer)

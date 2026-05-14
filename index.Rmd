@@ -4,21 +4,25 @@ graphics: yes
 name: Cole
 surname: Mathis
 headcolor: 414141
+fontsize: 10pt
 #qualifications: 
 position: "Assistant Professor"
 address: "727 E Tyler St | Room 130C, Tempe, AZ 85281"
 phone: "+1 480-459-8276"
 www: colemathis.github.io
 email: "cole.mathis@asu.edu"
-twitter: colemathis__
 github: colemathis
 aboutme: |
   Computational \& Statistical Physicist. Origins of Life, Complex Systems, Life Detection, Molecular Assembly.
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
-csl: "csl/apa7-cv-jy-edition.csl"
+csl: "csl/talks.csl"
 header-includes:
   # allow URLs to break at any character
   - \usepackage{xurl}
+  # normalize subsection spacing to match section spacing
+  - '\renewcommand{\subsection}[1]{\vspace{\acvSectionContentTopSkip}\subsectionstyle{#1}\phantomsection}'
+  # suppress parskip's global inter-paragraph gap
+  - \setlength{\parskip}{0pt}
   # - \usepackage{fancyhdr}
   # - \pagestyle{fancy}
   # - \fancyhf{}
