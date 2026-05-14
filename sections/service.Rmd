@@ -25,4 +25,4 @@ vroom::vroom("data/committees-service.csv") %>%
 
 ## Refereeing
 
-Astrobiology; Physical Review E; Nature Astronomy; Scientific Reports; Journal of the Royal Society: Interface Focus; PloS Computational Biology; Journal of Molecular Evolution; Journal of the Royal Society: Phil Trans A; Discovery Life (Nature Springer)
+Astrobiology **·** Physical Review E **·** Nature Astronomy **·** Scientific Reports **·** Journal of the Royal Society: Interface Focus **·** PloS Computational Biology **·** Journal of Molecular Evolution **·** Journal of the Royal Society: Phil Trans A **·** Discovery Life (Nature Springer)
