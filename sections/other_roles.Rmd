@@ -1,11 +1,10 @@
+# Other Roles
 
-# Academic Appointments
-
-```{r Experience}
+```{r other_roles}
 library(vitae)
 library(lubridate)
 vroom::vroom("data/experience.csv") %>%
-    filter(institution != "39 Alpha Research") %>%
+    filter(institution == "39 Alpha Research") %>%
     mutate(date = as.Date(start, "%m/%d/%Y")) %>%
     arrange(desc(date)) %>%
     mutate(
@@ -15,10 +14,10 @@ vroom::vroom("data/experience.csv") %>%
         when      = glue::glue("{start_fmt} - {end_fmt}")
     ) %>%
     detailed_entries(
-        where = detail,
-        when  = when,
         what  = institution,
+        when  = when,
         with  = position,
+        where = detail,
         why   = description,
     )
 ```

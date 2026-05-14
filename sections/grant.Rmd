@@ -3,6 +3,9 @@
 
 ```{r}
 vroom::vroom("data/grant.csv") %>%
-    tidyr::fill(-why) %>%
-    vitae::detailed_entries(what, when, with, where)
+    mutate(
+        funder = if_else(!is.na(where) & where != "", glue::glue("{with}, {where}"), with),
+        amount = why
+    ) %>%
+    vitae::detailed_entries(what = what, when = when, with = funder, where = amount)
 ```
