@@ -1,7 +1,7 @@
 # Grants and Awards
 
 ```{r grant-helpers}
-# Escape LaTeX specials by hand so the ASU share can be set in bold
+# Escape LaTeX specials by hand so the total can be set in bold
 esc <- function(x) gsub("([$&%#_])", "\\\\\\1", x)
 
 grants <- vroom::vroom("data/grant.csv", show_col_types = FALSE) %>%
@@ -10,8 +10,8 @@ grants <- vroom::vroom("data/grant.csv", show_col_types = FALSE) %>%
         funder = if_else(where != "", glue::glue("{with}, {where}"), with),
         amount = if_else(
             asu != "",
-            glue::glue("{esc(why)} / \\textbf{{ASU: {esc(asu)}}}"),
-            esc(why)
+            glue::glue("\\textbf{{{esc(why)}}} / ASU: {esc(asu)}"),
+            glue::glue("\\textbf{{{esc(why)}}}")
         )
     )
 
