@@ -3,7 +3,7 @@ title: Cole (Nicholas) Mathis's Curriculum Vitae
 graphics: yes
 name: Cole
 surname: Mathis
-headcolor: 414141
+headcolor: 7D2E46
 fontsize: 10pt
 linestretch: 1.05
 #qualifications: 

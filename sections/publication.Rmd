@@ -1,7 +1,7 @@
 # Publications
 
 
-**`#`**: Author of Correspondence.         **`*`**: Joint First authors.          **`-`**: Not Peer Reviewed.
+\textcolor{awesome}{\textbf{\texttt{\#}}}: Author of Correspondence.         **`*`**: Joint First authors.          **`-`**: Not Peer Reviewed.
 
 <!-- # Selected Publications -->
 <!--  -->
