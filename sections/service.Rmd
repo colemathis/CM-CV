@@ -7,10 +7,12 @@ library(lubridate)
 vroom::vroom("data/committees-service.csv") %>%
   mutate(
     date_parsed = lubridate::my(start),
-    start_fmt   = format(date_parsed, "%b. %Y")
+    start_fmt   = format(date_parsed, "%b. %Y"),
+    stop_parsed = suppressWarnings(lubridate::my(stop)),
+    stop_fmt    = if_else(is.na(stop_parsed), stop, format(stop_parsed, "%b. %Y"))
   ) %>%
   arrange(desc(date_parsed)) %>%
-  mutate(line = glue::glue("- {with}, {where} ({start_fmt} - {stop})")) %>%
+  mutate(line = glue::glue("- {with}, {where} ({start_fmt} - {stop_fmt})")) %>%
   pull(line) %>%
   paste(collapse = "\n") %>%
   cat()
