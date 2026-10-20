@@ -43,7 +43,7 @@ bib_entry <- function(key, title, year, month, with, where, why) {
     paste0("  month     = ", month, ",")
   )
   if (!is.na(with) && nchar(trimws(with)) > 0) {
-    lines <- c(lines, paste0("  publisher = {", with, "},"))
+    lines <- c(lines, paste0("  publisher = {{", with, "}},"))
   }
   if (!is.na(where) && nchar(trimws(where)) > 0) {
     lines <- c(lines, paste0("  address   = {", where, "},"))

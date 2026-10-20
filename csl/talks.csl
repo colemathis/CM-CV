@@ -1401,7 +1401,7 @@
     entry-spacing="0" line-spacing="2">
     <sort>
       <key macro="date-sort-group" sort="descending" />
-      <key macro="date-bib" sort="descending" />
+      <key variable="issued" sort="descending" />
       <key variable="status" />
       <key macro="author-bib" />
       <key macro="title" />
@@ -1453,7 +1453,10 @@
           <!-- Talks / misc: no author, title first, venue, date at end without parens -->
           <group delimiter=". " suffix=".">
             <text variable="title" />
-            <text macro="publisher" />
+            <group delimiter=", ">
+              <text variable="publisher" />
+              <text variable="publisher-place" />
+            </group>
             <text macro="date-talks" />
           </group>
         </else>
