@@ -6,9 +6,8 @@ library(glue)
 .mentorship <- vroom::vroom("data/mentorship.csv") %>%
   mutate(across(where(is.character), trimws)) %>%
   mutate(
-    start_date = lubridate::my(
-      gsub("\\.", "", stringr::str_extract(when, "^[A-Za-z]+\\.?\\s+\\d{4}"))
-    ),
+    when       = fmt_dates_text(when),
+    start_date = parse_month(when),
     is_active = grepl("Present", when)
   ) %>%
   arrange(desc(is_active), start_date)
@@ -47,9 +46,8 @@ Olivia Smith (PhD student) serves as graduate mentor across all projects.
 .bss <- vroom::vroom("data/bss-scholars.csv", show_col_types = FALSE) %>%
   mutate(
     across(everything(), ~ replace_na(trimws(as.character(.x)), "")),
-    start_date = lubridate::my(
-      str_replace_all(word(when, 1, 2), c("\\." = "", "^Fall" = "Sep", "^Spring" = "Jan"))
-    ),
+    when       = fmt_dates_text(when),
+    start_date = parse_month(when),
     is_active = grepl("Present", when),
     direct    = mentor == ""
   )

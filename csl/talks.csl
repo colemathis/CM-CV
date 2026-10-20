@@ -44,6 +44,19 @@
         <multiple>issues</multiple>
       </term>
       <term name="software">computer software</term>
+      <!-- CV date convention: AP/Chicago month abbreviations -->
+      <term name="month-01" form="short">Jan.</term>
+      <term name="month-02" form="short">Feb.</term>
+      <term name="month-03" form="short">Mar.</term>
+      <term name="month-04" form="short">Apr.</term>
+      <term name="month-05" form="short">May</term>
+      <term name="month-06" form="short">June</term>
+      <term name="month-07" form="short">July</term>
+      <term name="month-08" form="short">Aug.</term>
+      <term name="month-09" form="short">Sept.</term>
+      <term name="month-10" form="short">Oct.</term>
+      <term name="month-11" form="short">Nov.</term>
+      <term name="month-12" form="short">Dec.</term>
     </terms>
   </locale>
   <locale xml:lang="da">
@@ -217,7 +230,7 @@
     <choose>
       <if variable="issued">
         <date variable="issued">
-          <date-part name="month" suffix=" " />
+          <date-part name="month" form="short" suffix="&#160;" />
           <date-part name="year" />
         </date>
       </if>

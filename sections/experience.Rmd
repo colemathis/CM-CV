@@ -9,10 +9,10 @@ vroom::vroom("data/experience.csv") %>%
     mutate(date = as.Date(start, "%m/%d/%Y")) %>%
     arrange(desc(date)) %>%
     mutate(
-        start_fmt = format(date, "%b %Y"),
+        start_fmt = fmt_month(date),
         end_date  = suppressWarnings(as.Date(end, "%m/%d/%Y")),
-        end_fmt   = if_else(end == "Present", "Present", format(end_date, "%b %Y")),
-        when      = glue::glue("{start_fmt} - {end_fmt}")
+        end_fmt   = if_else(end == "Present", "Present", fmt_month(end_date)),
+        when      = glue::glue("{start_fmt} {.en_dash} {end_fmt}")
     ) %>%
     detailed_entries(
         where = detail,

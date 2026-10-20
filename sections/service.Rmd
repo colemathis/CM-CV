@@ -7,24 +7,24 @@ library(lubridate)
 vroom::vroom("data/committees-service.csv") %>%
   mutate(
     date_parsed = lubridate::my(start),
-    start_fmt   = format(date_parsed, "%b. %Y"),
+    start_fmt   = fmt_month(date_parsed),
     stop_parsed = suppressWarnings(lubridate::my(stop)),
-    stop_fmt    = if_else(is.na(stop_parsed), stop, format(stop_parsed, "%b. %Y"))
+    stop_fmt    = if_else(is.na(stop_parsed), stop, fmt_month(stop_parsed))
   ) %>%
   arrange(desc(date_parsed)) %>%
-  mutate(line = glue::glue("- {with}, {where} ({start_fmt} - {stop_fmt})")) %>%
+  mutate(line = glue::glue("- {with}, {where} ({start_fmt} {.en_dash} {stop_fmt})")) %>%
   pull(line) %>%
   paste(collapse = "\n") %>%
   cat()
 ```
 
 ## Conference Organizer
-- Before and Beyond Biology: Assembly Theory and New Frontiers for Explaining the Origins of Life, Santa Fe Institute, November 2026.
+- Before and Beyond Biology: Assembly Theory and New Frontiers for Explaining the Origins of Life, Santa Fe Institute, Nov. 2026.
 - AbSciCon 2026 (Scientific Organizing Committee), University of Wisconsin Madison, June 2026.
-- Assembly Theory for Folded Matter, Santa Fe Institute, August 2025.
-- Interdisciplinary Origin of Life Meeting for Early Career Researchers, University of Montreal, August 2022.
-- New Frontiers in the Origins of Life, Santa Fe Institute, March 2022.
-- Satellite Session, Conference on Complex Systems, Arizona State University, October 2015.
+- Assembly Theory for Folded Matter, Santa Fe Institute, Aug. 2025.
+- Interdisciplinary Origin of Life Meeting for Early Career Researchers, University of Montreal, Aug. 2022.
+- New Frontiers in the Origins of Life, Santa Fe Institute, Mar. 2022.
+- Satellite Session, Conference on Complex Systems, Arizona State University, Oct. 2015.
 
 ## Review Panels
 
@@ -32,7 +32,7 @@ vroom::vroom("data/committees-service.csv") %>%
 vroom::vroom("data/grant-service.csv", show_col_types = FALSE) %>%
   mutate(date_parsed = lubridate::my(when)) %>%
   arrange(desc(date_parsed)) %>%
-  mutate(line = glue::glue("- {who}, {position} ({format(date_parsed, '%b. %Y')})")) %>%
+  mutate(line = glue::glue("- {who}, {position} ({fmt_month(date_parsed)})")) %>%
   pull(line) %>%
   paste(collapse = "\n") %>%
   cat()

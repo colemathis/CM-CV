@@ -7,6 +7,7 @@ esc <- function(x) gsub("([$&%#_])", "\\\\\\1", x)
 grants <- vroom::vroom("data/grant.csv", show_col_types = FALSE) %>%
     mutate(
         across(everything(), ~ replace_na(as.character(.x), "")),
+        when   = fmt_dates_text(when),
         funder = if_else(where != "", glue::glue("{with}, {where}"), with),
         amount = if_else(
             asu != "",

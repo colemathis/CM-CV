@@ -4,8 +4,8 @@
 library(tibble)
 tribble(
     ~Degree, ~Year, ~Institution, ~Where,
-    "PhD Physics", "2013-2018", "Arizona State University", "Tempe, Arizona",
-    "BSc Physics", "2010-2013", "San Francisco State University", "San Francisco, California"
+    "PhD Physics", "2013–2018", "Arizona State University", "Tempe, Arizona",
+    "BSc Physics", "2010–2013", "San Francisco State University", "San Francisco, California"
 ) %>%
     detailed_entries(Degree, Year, Institution, Where)
 ```
