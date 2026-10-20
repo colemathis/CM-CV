@@ -3,10 +3,21 @@
 School of Complex Adaptive Systems, Arizona State University
 
 ```{r teaching-experience}
+# "Spring 2024", "Spring 2027 (scheduled)" -> "Spring 2024, 2027 (scheduled)"
+# so the list fits the date column; mixed seasons are listed in full.
+collapse_semesters <- function(x) {
+  season <- word(x, 1)
+  if (n_distinct(season) == 1) {
+    paste0(season[1], " ", paste(str_remove(x, "^\\S+\\s+"), collapse = ", "))
+  } else {
+    paste(x, collapse = ", ")
+  }
+}
+
 vroom::vroom("data/teaching-experience.csv") %>%
   mutate(across(where(is.character), trimws)) %>%
   group_by(code, title, designed) %>%
-  summarize(semesters = paste(semester, collapse = ", "), .groups = "drop") %>%
+  summarize(semesters = collapse_semesters(semester), .groups = "drop") %>%
   mutate(
     course    = glue::glue("{code}: {title}"),
     role      = if_else(designed == "Y", "Course Designer & Instructor", "Instructor")
