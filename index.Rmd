@@ -5,6 +5,7 @@ name: Cole
 surname: Mathis
 headcolor: 414141
 fontsize: 10pt
+linestretch: 1.05
 #qualifications: 
 position: "Assistant Professor"
 address: "727 E Tyler St | Room 130C, Tempe, AZ 85281"
@@ -19,8 +20,12 @@ csl: "csl/talks.csl"
 header-includes:
   # allow URLs to break at any character
   - \usepackage{xurl}
+  # keep short blocks (e.g. Pending grants) from splitting across pages
+  - \usepackage{needspace}
   # normalize subsection spacing to match section spacing
-  - '\renewcommand{\subsection}[1]{\vspace{\acvSectionContentTopSkip}\subsectionstyle{#1}\phantomsection}'
+  - '\renewcommand{\subsection}[1]{\Needspace{4\baselineskip}\vspace{3mm}\subsectionstyle{#1}\phantomsection}'
+  # small gap between publications/talks (CSL entry-spacing must be whole lines)
+  - '\AtBeginEnvironment{CSLReferences}{\setlength{\parskip}{2pt}}'
   # suppress parskip's global inter-paragraph gap
   - \setlength{\parskip}{0pt}
   # - \usepackage{fancyhdr}

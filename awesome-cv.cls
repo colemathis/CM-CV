@@ -399,8 +399,8 @@
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
 % Others
-\newcommand{\acvSectionTopSkip}{2mm}
-\newcommand{\acvSectionContentTopSkip}{1.5mm}
+\newcommand{\acvSectionTopSkip}{5mm}
+\newcommand{\acvSectionContentTopSkip}{2.5mm}
 
 
 %-------------------------------------------------------------------------------
@@ -584,6 +584,8 @@
 % Usage: \cvsection{<section-title>}
 
 \renewcommand{\section}[1]{%
+	% never leave a heading stranded at the foot of a page
+	\Needspace{5\baselineskip}%
 	\vspace{\acvSectionTopSkip}
 	\sectionstyle{#1}
 	\phantomsection
@@ -628,6 +630,8 @@
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}%
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}%
   \end{tabular*}%
+  % breathing room between entries: more after two-line entries than single rows
+  \ifempty{#2#3}{}{\vspace{1.5mm}}%
 }
 
 % Define an environment for cvsubentry

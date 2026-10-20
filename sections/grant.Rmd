@@ -29,6 +29,8 @@ grant_entries <- function(df) {
 grants %>% filter(status != "Pending") %>% grant_entries()
 ```
 
+\needspace{7\baselineskip}
+
 ## Pending
 
 ```{r grants-pending}

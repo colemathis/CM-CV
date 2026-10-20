@@ -41,8 +41,8 @@ Year-long undergraduate research program of the Biodesign Center for Biocomputin
 Olivia Smith (PhD student) serves as graduate mentor across all projects.
 
 ```{r bss-scholars}
-# One header row per project (title + mentor), then one row per scholar.
-# Projects I mentor directly come first; scholars are listed active-first.
+# One header row per project (title left, mentor right), then one indented row
+# per scholar. Projects I mentor directly come first; scholars active-first.
 .bss <- vroom::vroom("data/bss-scholars.csv", show_col_types = FALSE) %>%
   mutate(
     across(everything(), ~ replace_na(trimws(as.character(.x)), "")),
@@ -61,9 +61,10 @@ Olivia Smith (PhD student) serves as graduate mentor across all projects.
 bind_rows(
   .bss_projects %>%
     transmute(
-      order, row = 0L, project,
-      what = if_else(direct, "Mentored directly", glue("Mentor: {mentor} ({mentor_role})")),
-      when = ""
+      order, row = 0L, indent = FALSE, what = project,
+      # Initial the mentor's first name so it fits the date column
+      when = if_else(direct, "Mentored directly",
+                     paste0("Mentor: ", str_sub(mentor, 1, 1), ". ", str_remove(mentor, "^\\S+\\s+")))
     ),
   .bss %>%
     inner_join(select(.bss_projects, project, order), by = "project") %>%
@@ -71,13 +72,13 @@ bind_rows(
     group_by(order) %>%
     mutate(row = row_number()) %>%
     ungroup() %>%
-    transmute(order, row, project = "", what = scholar, when)
+    transmute(order, row, indent = TRUE, what = scholar, when)
 ) %>%
   arrange(order, row) %>%
-  # Escape by hand so the project title can be set in upright-weight italics
+  # Escape by hand so scholar names can be indented under their project
   mutate(
-    across(c(what, when, project), ~ gsub("([$&%#_])", "\\\\\\1", .x)),
-    project = if_else(project != "", glue("\\textmd{{\\textit{{{project}}}}}"), project)
+    across(c(what, when), ~ gsub("([$&%#_])", "\\\\\\1", .x)),
+    what = if_else(indent, paste0("\\hspace{1.2em}", what), what)
   ) %>%
-  vitae::detailed_entries(what = what, when = when, with = project, .protect = FALSE)
+  vitae::detailed_entries(what = what, when = when, .protect = FALSE)
 ```
