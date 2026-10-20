@@ -35,3 +35,51 @@ library(glue)
     when = when
   )
 ```
+
+## BSS Scholars
+
+Year-long undergraduate research program of the Biodesign Center for Biocomputing, Security and Society, ASU.\
+Olivia Smith (PhD student) serves as graduate mentor across all projects.
+
+```{r bss-scholars}
+# One header row per project (title + mentor), then one row per scholar.
+# Projects I mentor directly come first; scholars are listed active-first.
+.bss <- vroom::vroom("data/bss-scholars.csv", show_col_types = FALSE) %>%
+  mutate(
+    across(everything(), ~ replace_na(trimws(as.character(.x)), "")),
+    start_date = lubridate::my(
+      str_replace_all(word(when, 1, 2), c("\\." = "", "^Fall" = "Sep", "^Spring" = "Jan"))
+    ),
+    is_active = grepl("Present", when),
+    direct    = mentor == ""
+  )
+
+.bss_projects <- .bss %>%
+  group_by(project, mentor, mentor_role, direct) %>%
+  summarize(first_start = min(start_date), .groups = "drop") %>%
+  arrange(desc(direct), first_start) %>%
+  mutate(order = row_number())
+
+bind_rows(
+  .bss_projects %>%
+    transmute(
+      order, row = 0L, project,
+      what = if_else(direct, "Mentored directly", glue("Mentor: {mentor} ({mentor_role})")),
+      when = ""
+    ),
+  .bss %>%
+    inner_join(select(.bss_projects, project, order), by = "project") %>%
+    arrange(order, desc(is_active), start_date) %>%
+    group_by(order) %>%
+    mutate(row = row_number()) %>%
+    ungroup() %>%
+    transmute(order, row, project = "", what = scholar, when)
+) %>%
+  arrange(order, row) %>%
+  # Escape by hand so the project title can be set in upright-weight italics
+  mutate(
+    across(c(what, when, project), ~ gsub("([$&%#_])", "\\\\\\1", .x)),
+    project = if_else(project != "", glue("\\textmd{{\\textit{{{project}}}}}"), project)
+  ) %>%
+  vitae::detailed_entries(what = what, when = when, with = project, .protect = FALSE)
+```
