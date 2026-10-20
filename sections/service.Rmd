@@ -19,6 +19,7 @@ vroom::vroom("data/committees-service.csv") %>%
 ```
 
 ## Conference Organizer
+- Before and Beyond Biology: Assembly Theory and New Frontiers for Explaining the Origins of Life, Santa Fe Institute, November 2026.
 - AbSciCon 2026 (Scientific Organizing Committee), University of Wisconsin Madison, June 2026.
 - Assembly Theory for Folded Matter, Santa Fe Institute, August 2025.
 - Interdisciplinary Origin of Life Meeting for Early Career Researchers, University of Montreal, August 2022.
@@ -39,4 +40,4 @@ vroom::vroom("data/grant-service.csv", show_col_types = FALSE) %>%
 
 ## Refereeing
 
-Astrobiology **·** Physical Review E **·** Nature Astronomy **·** Scientific Reports **·** Journal of the Royal Society: Interface Focus **·** PloS Computational Biology **·** Journal of Molecular Evolution **·** Journal of the Royal Society: Phil Trans A **·** Discovery Life (Nature Springer)
+Astrobiology **·** Physical Review E **·** Nature Astronomy **·** Scientific Reports **·** Journal of the Royal Society: Interface Focus **·** PloS Computational Biology **·** Journal of Molecular Evolution **·** Journal of the Royal Society: Phil Trans A **·** Discovery Life (Nature Springer) **·** Communications AI & Computing (Nature Springer)
