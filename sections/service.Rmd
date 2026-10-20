@@ -25,6 +25,18 @@ vroom::vroom("data/committees-service.csv") %>%
 - New Frontiers in the Origins of Life, Santa Fe Institute, March 2022.
 - Satellite Session, Conference on Complex Systems, Arizona State University, October 2015.
 
+## Review Panels
+
+```{r review-panels, results='asis'}
+vroom::vroom("data/grant-service.csv", show_col_types = FALSE) %>%
+  mutate(date_parsed = lubridate::my(when)) %>%
+  arrange(desc(date_parsed)) %>%
+  mutate(line = glue::glue("- {who}, {position} ({format(date_parsed, '%b. %Y')})")) %>%
+  pull(line) %>%
+  paste(collapse = "\n") %>%
+  cat()
+```
+
 ## Refereeing
 
 Astrobiology **·** Physical Review E **·** Nature Astronomy **·** Scientific Reports **·** Journal of the Royal Society: Interface Focus **·** PloS Computational Biology **·** Journal of Molecular Evolution **·** Journal of the Royal Society: Phil Trans A **·** Discovery Life (Nature Springer)
