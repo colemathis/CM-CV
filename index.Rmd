@@ -8,13 +8,12 @@ fontsize: 10pt
 linestretch: 1.05
 #qualifications: 
 position: "Assistant Professor"
-address: "727 E Tyler St | Room 130C, Tempe, AZ 85281"
+address: "727 E Tyler St, Room 130C, Tempe, AZ 85281"
 phone: "+1 480-459-8276"
 www: mathis-group.github.io
 email: "cole.mathis@asu.edu"
-github: colemathis
 aboutme: |
-  Computational \& Statistical Physicist. Origins of Life, Complex Systems, Life Detection, Assembly Theory.
+  Origins of Life, Complex Systems, Life Detection, Assembly Theory.
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 csl: "csl/talks.csl"
 header-includes:
@@ -26,6 +25,10 @@ header-includes:
   - '\renewcommand{\subsection}[1]{\Needspace{4\baselineskip}\vspace{3mm}\subsectionstyle{#1}\phantomsection}'
   # small gap between publications/talks (CSL entry-spacing must be whole lines)
   - '\AtBeginEnvironment{CSLReferences}{\setlength{\parskip}{2pt}}'
+  # header contact separator: centered dot (vitae's template sets a pipe)
+  - '\renewcommand{\acvHeaderSocialSep}{\enspace\textperiodcentered\enspace}'
+  # links (e.g. the header email) in the body font, not typewriter
+  - \urlstyle{same}
   # suppress parskip's global inter-paragraph gap
   - \setlength{\parskip}{0pt}
   # - \usepackage{fancyhdr}
