@@ -1,11 +1,35 @@
-
 # Grants and Awards
 
-```{r}
-vroom::vroom("data/grant.csv") %>%
+```{r grant-helpers}
+# Escape LaTeX specials by hand so the ASU share can be set in bold
+esc <- function(x) gsub("([$&%#_])", "\\\\\\1", x)
+
+grants <- vroom::vroom("data/grant.csv", show_col_types = FALSE) %>%
     mutate(
-        funder = if_else(!is.na(where) & where != "", glue::glue("{with}, {where}"), with),
-        amount = why
-    ) %>%
-    vitae::detailed_entries(what = what, when = when, with = funder, where = amount)
+        across(everything(), ~ replace_na(as.character(.x), "")),
+        funder = if_else(where != "", glue::glue("{with}, {where}"), with),
+        amount = if_else(
+            asu != "",
+            glue::glue("{esc(why)} / \\textbf{{ASU: {esc(asu)}}}"),
+            esc(why)
+        )
+    )
+
+grant_entries <- function(df) {
+    vitae::detailed_entries(
+        mutate(df, what = esc(what), funder = esc(funder)),
+        what = what, when = when, with = funder, where = amount,
+        .protect = FALSE
+    )
+}
+```
+
+```{r grants-awarded}
+grants %>% filter(status != "Pending") %>% grant_entries()
+```
+
+## Pending
+
+```{r grants-pending}
+grants %>% filter(status == "Pending") %>% grant_entries()
 ```
