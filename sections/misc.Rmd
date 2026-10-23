@@ -9,19 +9,3 @@ tribble(
 ) %>%
     detailed_entries(what = School, Year, Institution, Where)
 ```
-
-
-# Field Experience
-
-```{r}
-tribble(
-    ~Place, ~Year, ~Institution, ~Where, ~Why,
-    "Yellowstone National Park", "2016", "GEOPIG, Arizona State University", "Montana, USA", "I worked closely with geologists, chemists, and microbiologists to collect samples and measurements from several hot spring environments in Yellowstone National park. I worked under the supervision of Prof Everett Shock"
-) %>%
-    detailed_entries(
-        what  = Place,
-        when  = Year,
-        with  = Institution,
-        where = Where
-    )
-```
